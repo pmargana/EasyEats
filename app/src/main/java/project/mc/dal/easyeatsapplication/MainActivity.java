@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity
     private static int swipe_count = 0;
     @SuppressWarnings("deprecation")
     private final GestureDetector detector = new GestureDetector(new SwipeGestureDetector());
-    ImageView welcmBanrIv, newLanchIv, flower_bouquetsIv, flower_arrangementsIv, exotic_flowersIv, ready_comboIv, cakeIv, chocolateIv, plantIv, callIv, emailIv, CrntBanrIv, customiseButiqIv;
     ImageView indian,italian,mexican,chinese,american,local,beverages;
     ImageView starters,soups,salads,maincourse,deserts;
     Toolbar toolbar;
@@ -94,7 +93,6 @@ public class MainActivity extends AppCompatActivity
                 // right to left swipe
                 if (e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
                     swipe_count = swipe_count + 1;
-
                     //  mViewFlipper.setInAnimation(AnimationUtils.loadAnimation(mContext, R.anim.left_in));
                     // mViewFlipper.setOutAnimation(AnimationUtils.loadAnimation(mContext, R.anim.left_out));
                     // controlling animation
@@ -133,18 +131,6 @@ public class MainActivity extends AppCompatActivity
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 //       toolbar.setNavigationIcon(R.drawable.back_arrow_a7);
-
-       // final ActionBar ab = getSupportActionBar();
-      //  ab.setHomeAsUpIndicator(R.drawable.ic_addtocart);
-        //ab.setDisplayHomeAsUpEnabled(true);
-        //getSupportActionBar().setTitle("");
-//    //    Typeface custom_font1 = Typeface.createFromAsset(getAssets(), "fonts/ITCEDSCR.TTF");
-        //TextView title = (TextView)toolbar.findViewById(R.id.title);
-        //title.setTypeface(custom_font1);
-        //  Typeface custom_font2 = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Regular.ttf");
-        // userName = (TextView)toolbar.findViewById(R.id.userName);
-        //userName.setTypeface(custom_font2);
-//        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
