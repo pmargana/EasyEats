@@ -27,6 +27,10 @@
             android:icon="@drawable/ic_menu_manage"
             android:title="Help"/>
         <item
+            android:id="@+id/restaurants"
+            android:icon="@drawable/ic_menu_share"
+            android:title="Restaurants" />
+        <item
             android:id="@+id/call"
             android:icon="@drawable/ic_menu_share"
             android:title="Call Customer Care" />

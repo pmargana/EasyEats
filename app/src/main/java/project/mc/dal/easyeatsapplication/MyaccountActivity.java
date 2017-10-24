@@ -5,11 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-
-/**
- * Created by Ratnam on 10/24/2017.
- */
-
 public class MyaccountActivity extends AppCompatActivity
 {
     protected void onCreate(Bundle savedInstanceState) {

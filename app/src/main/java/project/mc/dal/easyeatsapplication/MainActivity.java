@@ -292,6 +292,12 @@ public class MainActivity extends AppCompatActivity
             startActivity(i);
 
         }
+        else if (id == R.id.restaurants) {
+            Intent i = new Intent(this, RestaurantsActivity.class);
+            startActivity(i);
+
+        }
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

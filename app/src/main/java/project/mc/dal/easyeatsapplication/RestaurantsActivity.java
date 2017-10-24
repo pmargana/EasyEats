@@ -2,14 +2,14 @@ package project.mc.dal.easyeatsapplication;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-public class LoginActivity extends AppCompatActivity
-{
+
+public class RestaurantsActivity extends Activity{
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_restaurants);
         setTitle(null);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.back_arrow);
@@ -19,5 +19,7 @@ public class LoginActivity extends AppCompatActivity
                 onBackPressed();
             }
         });
+
     }
 }
+

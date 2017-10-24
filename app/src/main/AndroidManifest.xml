@@ -24,7 +24,11 @@
     </activity>
     <activity android:name=".LoginActivity"
         android:theme="@style/AppTheme.NoActionBar"></activity>
-    <activity android:name=".MybasketActivity"
+        <activity android:name=".RestaurantsActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+
+
+        <activity android:name=".MybasketActivity"
         android:theme="@style/AppTheme.NoActionBar">
     </activity>
     <activity android:name=".MyaccountActivity"
