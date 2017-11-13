@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="project.mc.dal.easyeatsapplication">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -37,6 +39,11 @@
     <activity android:name=".MywishlistActivity"
         android:theme="@style/AppTheme.NoActionBar">
     </activity>
+        <activity
+            android:name=".CommonListActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+
     </application>
 
 </manifest>

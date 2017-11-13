@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/wish_list_with_badge"
+        android:layout_width="match_parent"
+        android:width="0dp"
+        android:height="1dp"
+        android:checkable="true"
+        android:enabled="true"
+        android:orderInCategory="300"
+        android:title="wish_list"
+        android:visible="true"
+        app:actionLayout="@layout/badgelayout"
+        app:showAsAction="always"></item>
+    <item
+        android:id="@+id/cart_with_badge"
+        app:actionLayout="@layout/badgelayout_cart"
+        android:orderInCategory="301"
+        android:title="Cart"
+        app:showAsAction="always"></item>
+</menu>
