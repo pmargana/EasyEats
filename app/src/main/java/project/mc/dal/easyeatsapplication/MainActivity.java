@@ -2,11 +2,13 @@ package project.mc.dal.easyeatsapplication;
 
 import android.content.Context;
 import android.content.Intent;
+import android.icu.util.ULocale;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -22,6 +24,11 @@ import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
+import com.microsoft.windowsazure.mobileservices.*;
+import com.microsoft.windowsazure.mobileservices.http.ServiceFilterResponse;
+import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
+
+import java.net.MalformedURLException;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -38,6 +45,10 @@ public class MainActivity extends AppCompatActivity
     Toolbar toolbar;
     TextView callTv, emailTv, userName;
     private DrawerLayout mDrawerLayout;
+
+    //Mobileservices variable -- ESK
+    private MobileServiceClient mClient;
+    private MobileServiceTable<TodoItem> mTodoTable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +94,35 @@ public class MainActivity extends AppCompatActivity
         };
 
         init();
+
+        try {
+            mClient = new MobileServiceClient(
+                    "https://eazyeats.azurewebsites.net",
+                    this
+            );
+            Log.e("Success", "Connection passes");
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
+        final TodoItem item = new TodoItem();
+        item.Text = "Awesome item";
+          //  mClient.getTable(Category.class).execute("select * from ")
+//        mClient.getTable(TodoItem.class).insert(item, new TableOperationCallback<item>()
+//        {
+//            public void onCompleted(TodoItem entity, Exception exception, ServiceFilterResponse response)
+//            {
+//                if (exception == null) {
+//                    // Insert succeeded
+//                } else {
+//                    // Insert failed
+//                }
+//            }
+//        });
+
+
+//        Log.e("output", mClient.getTable(TodoItem.class).execute("Select * from TodoItem"));
+
     }
 
 
