@@ -191,7 +191,9 @@ public class MainActivity extends AppCompatActivity
         indian.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(MainActivity.this, CommonListActivity.class);
+                intent.putExtra("index",0);
+                startActivity(intent);
             }
         });
         american=(ImageView)findViewById(R.id.american);
@@ -333,7 +335,7 @@ public class MainActivity extends AppCompatActivity
 
         }
         else if (id == R.id.restaurants) {
-            Intent i = new Intent(this, RestaurantsActivity.class);
+            Intent i = new Intent(this, NearbyRestaurantsActivity.class);
             startActivity(i);
 
         }
