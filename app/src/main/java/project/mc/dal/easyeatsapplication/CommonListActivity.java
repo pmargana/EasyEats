@@ -128,7 +128,7 @@ public class CommonListActivity extends AppCompatActivity {
                 // System.out.println("wishListTv clicked");
                 isWishListClicked = true;
                 // Toast.makeText(ProductActivity.this, "Heart Clicked onCreateOptionsMenu", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(CommonListActivity.this, CommonListActivity.class);
+                Intent intent = new Intent(CommonListActivity.this, MywishlistActivity.class);
                 startActivity(intent);
             }
         });
