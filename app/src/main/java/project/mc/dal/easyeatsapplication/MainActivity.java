@@ -1,12 +1,16 @@
 package project.mc.dal.easyeatsapplication;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -21,6 +25,7 @@ import android.view.MenuItem;
 import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 public class MainActivity extends AppCompatActivity
@@ -30,6 +35,7 @@ public class MainActivity extends AppCompatActivity
     private ViewFlipper mViewFlipper;
     private Animation.AnimationListener mAnimationListener;
     private Context mContext;
+    SharedPreferences loginpreference;
     private static int swipe_count = 0;
     @SuppressWarnings("deprecation")
     private final GestureDetector detector = new GestureDetector(new SwipeGestureDetector());
@@ -38,11 +44,27 @@ public class MainActivity extends AppCompatActivity
     Toolbar toolbar;
     TextView callTv, emailTv, userName;
     private DrawerLayout mDrawerLayout;
+    String username=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        /*loginpreference=getSharedPreferences(ConstantString.loginpreference,MODE_PRIVATE);
+        if(loginpreference!=null)
+        {
+            username =loginpreference.getString("username",null);
+            User userdetails= new LoginDatabaseHelper(this).getuserdetail(username);
+           Log.i("mobile",""+userdetails.getMobileNumber());
+        }
+
+
+        Log.i("username",""+username);
+        if(username!=null)
+        {
+            startActivity(new Intent(MainActivity.this,LoginActivity.class));
+            finish();
+        }*/
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -275,6 +297,29 @@ public class MainActivity extends AppCompatActivity
             startActivity(dialIntent);
         } else if (id == R.id.logout) {
 
+            new AlertDialog.Builder(this)
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setTitle("Logout Activity")
+                    .setMessage("Are you sure you want to Logout?")
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener()
+                    {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Toast.makeText(MainActivity.this, "Logged Out", Toast.LENGTH_SHORT).show();
+                          //  finish();
+                            SharedPreferences sp=getSharedPreferences(ConstantString.loginpreference,MODE_PRIVATE);
+                            SharedPreferences sp1=getSharedPreferences(ConstantString.registerpreference,MODE_PRIVATE);
+                            sp.edit().clear().commit();
+                            sp1.edit().clear().commit();
+                            startActivity(new Intent(MainActivity.this,LoginActivity.class));
+                            finish();
+
+                        }
+
+                    })
+                    .setNegativeButton("No", null)
+                    .show();
+
         }
         else if (id == R.id.login) {
             Intent i = new Intent(this, LoginActivity.class);
@@ -301,5 +346,11 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
     }
 }
