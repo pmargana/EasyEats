@@ -7,6 +7,7 @@
     <string name="action_settings">Search</string>
 
 
+
     //login and register screen related strings
 
     <string name="Login_app_name">Login and SignUp ScreenDesign Demo</string>
@@ -30,4 +31,7 @@
     <string name="registered_emailid">Please enter your Registered Email Id below:</string>
     <string name="submit">SUBMIT</string>
     <string name="back">BACK</string>
+
+    <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
+
 </resources>

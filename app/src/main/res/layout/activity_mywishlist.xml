@@ -18,4 +18,38 @@
             android:textSize="20dp"
             android:textColor="#FFFFFF"
             />
-    </android.support.v7.widget.Toolbar></LinearLayout>
+    </android.support.v7.widget.Toolbar>
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@+id/tool_bar"
+        android:enabled="false"
+        android:id="@+id/gridListButton"
+        android:text="Grid/List"
+        android:visibility="gone"
+        android:background="@drawable/grid_red_light"
+        android:onClick="changeArrangement"/>
+
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:indeterminate="false"
+        style="?android:attr/progressBarStyleLarge"
+        android:id="@+id/progressBar"
+        android:layout_centerInParent="true"
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gridListButton"
+        />
+
+
+</LinearLayout>
