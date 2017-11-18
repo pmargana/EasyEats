@@ -12,7 +12,7 @@ public class DBHelper extends SQLiteOpenHelper {
     //version number to upgrade database version
     //each time if you Add, Edit table, you need to change the
     //version number.
-    private static final int DATABASE_VERSION = 5;
+    private static final int DATABASE_VERSION = 6;
 
     // Database Name
     private static final String DATABASE_NAME = "product.db";
@@ -24,19 +24,18 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         //All necessary tables you like to create will create here
-
+       // sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + SingleProductWishList.TABLE);
         String CREATE_TABLE_WISHLIST = "CREATE TABLE " + SingleProductWishList.TABLE  + "("
-                + SingleProductWishList.KEY_ID  + " INTEGER PRIMARY KEY ,"
+                + SingleProductWishList.KEY_ID  + " TEXT PRIMARY KEY ,"
                 + SingleProductWishList.KEY_image + " TEXT, "
                 + SingleProductWishList.KEY_title + " TEXT, "
-                + SingleProductWishList.KEY_price + " INTEGER, "
-                +SingleProductWishList.KEY_RESTAURANT + " TEXT, "
+                +SingleProductWishList.KEY_Description + " TEXT, "
                 + SingleProductWishList.KEY_selected + " INTEGER )";
 
         sqLiteDatabase.execSQL(CREATE_TABLE_WISHLIST);
-
+//+ SingleProductWishList.KEY_price + " INTEGER, "
         String CREATE_TABLE_CART = "CREATE TABLE " + SingleProductCart.TABLE  + "("
-                + SingleProductCart.KEY_ID  + " INTEGER PRIMARY KEY ,"
+                + SingleProductCart.KEY_ID  + " TEXT PRIMARY KEY ,"
                 + SingleProductCart.KEY_image + " TEXT, "
                 + SingleProductCart.KEY_title + " TEXT, "
                 + SingleProductCart.KEY_price + " TEXT, "

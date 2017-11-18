@@ -162,9 +162,9 @@ public class CommonListActivity extends AppCompatActivity {
         System.out.println("onResume of HomeActivity");
         //fetching cart data
         DBAdapter adapter1 = new DBAdapter(CommonListActivity.this);
-        int itemCountinCart=adapter1.getIdsOfAllCartProduct().size();
+/*        int itemCountinCart=adapter1.getIdsOfAllCartProduct().size();
         if(cartCountTv!=null)
-            cartCountTv.setText(String.valueOf(itemCountinCart));
+            cartCountTv.setText(String.valueOf(itemCountinCart));*/
 
     }
 

@@ -7,6 +7,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
@@ -42,7 +43,8 @@ import project.mc.dal.easyeatsapplication.Services.GetService;
 
 public class IndianFoodActivity extends Fragment {
 
-    String subCat_products_url="https://jsonblob.com/api/jsonBlob/527c4106-c708-11e7-b06a-99db826ae8c6";
+   // String subCat_products_url="https://jsonblob.com/api/jsonBlob/527c4106-c708-11e7-b06a-99db826ae8c6";
+   String subCat_products_url="https://jsonblob.com/api/jsonBlob/342e0be2-c7cf-11e7-b388-cfce4a721091";
     RecyclerView mRecyclerView;
     RecyclerView.LayoutManager mLayoutManager;
     LinearLayoutManager llm;
@@ -189,14 +191,19 @@ public class IndianFoodActivity extends Fragment {
                         HashMap singleProduct= new HashMap();
                         JSONObject cat_SubCat_Product = cat_SubCat_Products.optJSONObject(i);
                         String title = cat_SubCat_Product.getString("title");
-                        int id = cat_SubCat_Product.getInt("id");
-                        int price = cat_SubCat_Product.getInt("price");
-                        String imageUrl = cat_SubCat_Product.getString("imageUrl");
+                        String id = cat_SubCat_Product.getString("id");
+                        //int price = cat_SubCat_Product.getInt("price");
+                        String imageUrl = cat_SubCat_Product.getString("Image");
+                        String desc = cat_SubCat_Product.getString("Description");
                         System.out.println("title"+title);
                         System.out.println("ID:"+id);
+                        System.out.println("Desc:"+desc);
+                        System.out.println("URL image: "+imageUrl);
+
                         singleProduct.put("title", title);
                         singleProduct.put("id", id);
-                        singleProduct.put("price",price);
+                        //singleProduct.put("price",price);
+                        singleProduct.put("description",desc);
                         singleProduct.put("imageUrl", imageUrl);
                         cat_subCat_Products_List.add(singleProduct);
                     }

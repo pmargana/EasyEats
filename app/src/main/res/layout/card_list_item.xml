@@ -41,8 +41,8 @@
                 android:layout_below="@+id/img_thumbnail"
                 />
 
-          <!--  <TextView
-                android:id="@+id/tv_price"
+            <TextView
+                android:id="@+id/tv_Desc"
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
                 android:paddingLeft="10dp"
@@ -51,10 +51,10 @@
                 android:background="#fff"
                 android:textColor="#000"
                 android:textSize="15dp"
-                android:text="Price"
+                android:text="Description"
                 android:layout_marginTop="0.5dp"
                 android:layout_below="@+id/tv_title"
-                />-->
+                />
 
         </RelativeLayout>
 </LinearLayout>
