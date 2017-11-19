@@ -13,16 +13,18 @@ public class SingleProductWishList {
     public static final String KEY_image = "imageurl";
     public static final String KEY_title = "title";
     public static final String KEY_price = "price";
+    public static final String KEY_Description = "description";
     public static final String KEY_RESTAURANT = "restaurantName";
     public static final String KEY_selected = "selected";
 
     //Bitmap and discription(optional)
 
     // property help us to keep data
-    public int product_ID;
+    public String product_ID;
     public String imageurl;
     public String title;
     public int price;
     public int selected;
     public String restaurantName;
+    public String description;
 }

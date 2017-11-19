@@ -91,7 +91,7 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
         public ImageView imgThumbnail;
         public ImageView img_star;
         public TextView tvTitle;
-        public TextView tvPrice;
+        public TextView tvDescpt;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -99,7 +99,7 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
             imgThumbnail = (ImageView)itemView.findViewById(R.id.img_thumbnail);
             img_star =  (ImageView)itemView.findViewById(R.id.img_star);
             tvTitle = (TextView)itemView.findViewById(R.id.tv_title);
-           // tvPrice=(TextView)itemView.findViewById(R.id.tv_price);
+            tvDescpt=(TextView)itemView.findViewById(R.id.tv_Desc);
             itemView.setOnClickListener(new View.OnClickListener() {
 
                 @Override
@@ -121,7 +121,7 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
                 public void onClick(View v) {
                     System.out.println("getTag in Grid:"+v.getTag());
                     if((Boolean)v.getTag().equals(tagTrue)) {
-                        v.setTag(false);
+                       /// v.setTag(false);
                         v.setBackgroundResource(R.drawable.star_empty);
                         if(CommonListActivity.isWishListClicked)
                         {
@@ -185,22 +185,22 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
                         HashMap gridItem = dataSet.get(v.getId());
                         DBAdapter adapter = new DBAdapter(context);
                         SingleProductWishList product = new SingleProductWishList();
-                        product.product_ID = (Integer) gridItem.get("id");
+                        product.product_ID = (String) gridItem.get("id");
                         product.imageurl = (String) gridItem.get("imageUrl");
                         product.title = (String) gridItem.get("title");
-                        product.price = (Integer) gridItem.get("price");
+                        product.description = (String) gridItem.get("description");
                         product.selected = 1;
 
-                      //  int rowID = adapter.insert(product);//the row ID of the newly inserted row, or -1 if an error occurred
-                     //   System.out.println("rowID: " + rowID);
+                        int rowID = adapter.insert(product);//the row ID of the newly inserted row, or -1 if an error occurred
+                        System.out.println("rowID: " + rowID);
 
-                        //i need tag for selsected not selected ,id for accessing the dataset and i need ?(rowid) to delete the records????????????????????
+                      //  dataSet=adapter.getProductList();
+                      //  System.out.println("dataSet: " +dataSet.toString());
+                                //i need tag for selsected not selected ,id for accessing the dataset and i need ?(rowid) to delete the records????????????????????
                     }
 
                 }
             });
-
-
 
 
         }

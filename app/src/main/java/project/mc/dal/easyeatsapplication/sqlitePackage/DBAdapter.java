@@ -30,9 +30,9 @@ public class DBAdapter {
         values.put(SingleProductWishList.KEY_ID, student.product_ID);
         values.put(SingleProductWishList.KEY_image, student.imageurl);
         values.put(SingleProductWishList.KEY_title, student.title);
-        values.put(SingleProductWishList.KEY_price, student.price);
+        values.put(SingleProductWishList.KEY_Description, student.description);
         values.put(SingleProductWishList.KEY_selected, student.selected);
-
+        System.out.println("Values :"+values.toString());
         // Inserting Row
         long product_Id = db.insert(SingleProductWishList.TABLE, null, values);
         db.close(); // Closing database connection
@@ -55,7 +55,7 @@ public class DBAdapter {
 
         values.put(SingleProductWishList.KEY_image, student.imageurl);
         values.put(SingleProductWishList.KEY_title,student.title);
-        values.put(SingleProductWishList.KEY_price, student.price);
+        values.put(SingleProductWishList.KEY_Description, student.description);
         values.put(SingleProductWishList.KEY_selected, student.selected);
 
         // It's a good practice to use parameter ?, instead of concatenate string
@@ -82,7 +82,7 @@ public class DBAdapter {
                 SingleProductWishList.KEY_ID + "," +
                 SingleProductWishList.KEY_image + "," +
                 SingleProductWishList.KEY_title + "," +
-                SingleProductWishList.KEY_price + "," +
+                SingleProductWishList.KEY_Description + "," +
                 SingleProductWishList.KEY_selected +
                 " FROM " + SingleProductWishList.TABLE;
 
@@ -97,7 +97,7 @@ public class DBAdapter {
                 product.put("id", cursor.getInt(cursor.getColumnIndex(SingleProductWishList.KEY_ID)));
                 product.put("imageUrl", cursor.getString(cursor.getColumnIndex(SingleProductWishList.KEY_image)));
                 product.put("title", cursor.getString(cursor.getColumnIndex(SingleProductWishList.KEY_title)));
-                product.put("price", cursor.getInt(cursor.getColumnIndex(SingleProductWishList.KEY_price)));
+                product.put("description", cursor.getString(cursor.getColumnIndex(SingleProductWishList.KEY_Description)));
                 product.put("selected", cursor.getInt(cursor.getColumnIndex(SingleProductWishList.KEY_selected)));
                 productList.add(product);
 
@@ -148,7 +148,7 @@ public class DBAdapter {
                 SingleProductWishList.KEY_ID + "," +
                 SingleProductWishList.KEY_image + "," +
                 SingleProductWishList.KEY_title + "," +
-                SingleProductWishList.KEY_price + "," +
+                SingleProductWishList.KEY_Description + "," +
                 SingleProductWishList.KEY_selected +
                 " FROM " + SingleProductWishList.TABLE
                 + " WHERE " +
@@ -161,10 +161,10 @@ public class DBAdapter {
 
         if (cursor.moveToFirst()) {
             do {
-                product.product_ID =cursor.getInt(cursor.getColumnIndex(SingleProductWishList.KEY_ID));
+                product.product_ID =cursor.getString(cursor.getColumnIndex(SingleProductWishList.KEY_ID));
                 product.imageurl  =cursor.getString(cursor.getColumnIndex(SingleProductWishList.KEY_image));
                 product.title  =cursor.getString(cursor.getColumnIndex(SingleProductWishList.KEY_title));
-                product.price =cursor.getInt(cursor.getColumnIndex(SingleProductWishList.KEY_price));
+                product.price =cursor.getInt(cursor.getColumnIndex(SingleProductWishList.KEY_Description));
                 product.selected =cursor.getInt(cursor.getColumnIndex(SingleProductWishList.KEY_selected));
 
 

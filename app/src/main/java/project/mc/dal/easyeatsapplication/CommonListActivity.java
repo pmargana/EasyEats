@@ -63,6 +63,7 @@ public class CommonListActivity extends AppCompatActivity {
         myIntent=getIntent();
         Adapter adapter = new Adapter(getSupportFragmentManager());
         adapter.addFragment(new IndianFoodActivity(), "Indian Food");
+        //adapter.addFragment(new NearbyRestaurantsActivity(), "Nearby Restaurants");
       /*  adapter.addFragment(new FlowerArrangementsFragment(), "Flower Arrangements");
         adapter.addFragment(new ExoticFlowerFragment(), "Exotic Flowers");
         adapter.addFragment(new ReadyCombosFragment(), "Ready Combos");
@@ -128,7 +129,7 @@ public class CommonListActivity extends AppCompatActivity {
                 // System.out.println("wishListTv clicked");
                 isWishListClicked = true;
                 // Toast.makeText(ProductActivity.this, "Heart Clicked onCreateOptionsMenu", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(CommonListActivity.this, CommonListActivity.class);
+                Intent intent = new Intent(CommonListActivity.this, MywishlistActivity.class);
                 startActivity(intent);
             }
         });
@@ -162,9 +163,9 @@ public class CommonListActivity extends AppCompatActivity {
         System.out.println("onResume of HomeActivity");
         //fetching cart data
         DBAdapter adapter1 = new DBAdapter(CommonListActivity.this);
-        int itemCountinCart=adapter1.getIdsOfAllCartProduct().size();
+/*        int itemCountinCart=adapter1.getIdsOfAllCartProduct().size();
         if(cartCountTv!=null)
-            cartCountTv.setText(String.valueOf(itemCountinCart));
+            cartCountTv.setText(String.valueOf(itemCountinCart));*/
 
     }
 
